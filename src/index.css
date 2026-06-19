@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'GTProelium';                 
+  src: url('./assets/GTProeliumSharp.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Inter';                 
+  src: url('./assets/Inter-Inter_18pt-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter2';                 
+  src: url('./assets/Inter_18pt-Medium.ttf') format('truetype');
+}
+
 :root {
   --bgc1: #0039A2;
   --bgc2: #000000;
@@ -12,4 +25,8 @@ body {
 }
 
 
-
+#name {
+  font-family: 'GTProelium';
+  font-size: 24px;
+  color: white;
+}

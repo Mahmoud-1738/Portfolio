@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Inter';                 
+  src: url('./assets/Inter_18pt-ExtraLight.ttf') format('truetype');
+}
+.home{
+    /* margin-left: 100px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.home-title {
+ text-decoration: none;
+  color: white;
+  font-family: 'Inter';
+  font-size: 14px;
+}   
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+
+}
+
+.scroll-indicator__line {
+  width: 200px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.482);
+  border-radius: 5px;
+}   

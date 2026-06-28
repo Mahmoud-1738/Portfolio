@@ -1,0 +1,14 @@
+/* Full-height so the fixed Home hero always fills the viewport. */
+.route-stage {
+  min-height: 100vh;
+}
+
+/* The incoming page that slides in on top of the current one. */
+.route-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background: linear-gradient(var(--bgc1), var(--bgc2));
+  will-change: transform;
+}

@@ -1,22 +1,26 @@
 @font-face {
-  font-family: 'GTProelium';                 
-  src: url('./assets/GTProeliumSharp.otf') format('opentype');
+  font-family: "GTProelium";
+  src: url("./assets/GTProeliumSharp.otf") format("opentype");
 }
 @font-face {
-  font-family: 'Inter';                 
-  src: url('./assets/Inter_18pt-ExtraLight.ttf') format('truetype');
+  font-family: "Inter";
+  src: url("./assets/Inter_18pt-ExtraLight.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Inter2';                 
-  src: url('./assets/Inter_18pt-Medium.ttf') format('truetype');
+  font-family: "Inter2";
+  src: url("./assets/Inter_18pt-Medium.ttf") format("truetype");
 }
 
 :root {
-  --bgc1: #0039A2;
+  --bgc1: #1d5ce6;
   --bgc2: #000000;
-  --text1: #FFFFFF;
+  --text1: #ffffff;
 }
 
+html,
+body {
+  overflow-x: clip; /* hide the incoming page while it sits off-screen */
+}
 
 body {
   background: linear-gradient(var(--bgc1), var(--bgc2));
@@ -24,17 +28,14 @@ body {
   margin: 0;
 }
 
-
 #name {
-  font-family: 'GTProelium';
+  font-family: "GTProelium";
   font-size: 24px;
   color: white;
 }
 
-
-#portfolio {
-  font-family: 'GTProelium';
-  font-size: 250px;
+.big-text {
+  font-family: "GTProelium";
+  font-size: clamp(110px, 20vw, 360px);
   color: white;
 }
-

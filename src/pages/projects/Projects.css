@@ -1,0 +1,410 @@
+.projects-page {
+  background: #05070d;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+/* ---------- Hero ---------- */
+.projects-hero {
+  position: relative;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* brighter blue, concentrated near the top, fading to black sooner */
+  background: linear-gradient(
+    180deg,
+    #1d5ce6 0%,
+    #00276f 40%,
+    #05070d 70%,
+    #05070d 100%
+  );
+  overflow: hidden;
+}
+
+.projects-big {
+  margin: 0;
+  margin-top: -12vh; /* nudge the word up; make this more negative to push higher */
+  font-family: "GTProelium", sans-serif;
+  font-size: clamp(90px, 18vw, 320px);
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #d7dde8;
+  text-align: center;
+}
+
+/* Placeholder where the 3D phone will sit — delete the styling once you add it. */
+.projects-phone-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: clamp(120px, 14vw, 220px);
+  height: clamp(240px, 30vw, 440px);
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.projects-scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Toolbar ---------- */
+.projects-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.view-toggle__label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 6px;
+}
+
+.view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.view-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.view-btn.is-active {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Right side of the toolbar: search + filter buttons */
+.toolbar-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  width: 140px;
+}
+
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn__caret {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.filter-btn__caret.is-up {
+  transform: rotate(180deg);
+}
+
+.projects-empty {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 40px 0;
+}
+
+/* ---------- Projects wrapper ---------- */
+.projects-list {
+  padding: 50px 60px 120px;
+}
+
+/* shared service tag */
+.service-tag {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+/* ===================== GRID view: images only ===================== */
+.projects-list--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0d1016;
+  cursor: pointer;
+}
+
+.grid-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.grid-card:hover img {
+  transform: scale(1.04);
+}
+
+.grid-card__ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #11151d, #1d2430);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.grid-card__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-card:hover .grid-card__overlay {
+  opacity: 1;
+}
+
+.grid-card__name {
+  font-family: "GTProelium", sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.grid-card__category {
+  font-size: 14px;
+  color: #6ea8ff;
+}
+
+/* ===================== LIST view: text rows only ===================== */
+.projects-list--list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-row {
+  display: grid;
+  grid-template-columns: 56px minmax(220px, 380px) minmax(150px, 230px) 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.list-row__index {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.list-row__name {
+  margin: 0;
+  font-family: "GTProelium", sans-serif;
+  font-size: 34px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.list-row__category {
+  font-size: 15px;
+  color: #6ea8ff;
+}
+
+.list-row__services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ===================== SINGLE view: big image + info ===================== */
+.projects-list--single {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.single-card {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 900px) minmax(280px, 1fr);
+  column-gap: 40px;
+  align-items: stretch;
+}
+
+.single-card__index {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.45);
+  padding-top: 6px;
+}
+
+.single-card__shot {
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0d1016;
+}
+
+.single-card__shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.single-card__ph {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #11151d, #1d2430);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.single-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.single-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.single-card__name {
+  margin: 0;
+  font-family: "GTProelium", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.single-card__year {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.single-card__category {
+  font-size: 16px;
+  color: #6ea8ff;
+}
+
+.single-card__services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto; /* push to the bottom, aligned with the image */
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .projects-toolbar,
+  .projects-list {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .projects-list--grid {
+    grid-template-columns: 1fr;
+  }
+
+  .list-row {
+    grid-template-columns: 40px 1fr;
+    gap: 6px 16px;
+  }
+
+  .list-row__category,
+  .list-row__services {
+    grid-column: 2;
+  }
+
+  .single-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

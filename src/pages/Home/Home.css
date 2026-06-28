@@ -1,35 +1,88 @@
 @font-face {
-  font-family: 'Inter';                 
-  src: url('./assets/Inter_18pt-ExtraLight.ttf') format('truetype');
+  font-family: "Inter";
+  src: url("./assets/Inter_18pt-ExtraLight.ttf") format("truetype");
 }
-.home{
-    /* margin-left: 100px; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+
+/* Fixed full-screen hero — the page never scrolls, so nothing drifts. */
+.home {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 120px 60px 40px;
+  overflow: hidden;
+}
+
+.home-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 180px;
 }
 
 .home-title {
- text-decoration: none;
+  text-decoration: none;
   color: white;
-  font-family: 'Inter';
-  font-size: 14px;
-}   
+  font-family: "Inter";
+  font-size: 20px;
+  margin: 0;
+}
+
+.big-text-container {
+  position: relative;
+  width: clamp(360px, 62vw, 1100px);
+  height: clamp(160px, 26vw, 420px);
+}
+
+.big-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #d7dde8;
+}
+
+.home-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
 .scroll-indicator {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 60px;
-
+  justify-content: space-between;
+  gap: 40px;
+  margin: 0;
 }
 
 .scroll-indicator__line {
-  width: 200px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.482);
+  flex: 1;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.25);
   border-radius: 5px;
-}   
+}
+
+.home-footer__meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Inter";
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.home-footer__meta a,
+.home-footer__meta span {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}

@@ -4,6 +4,10 @@
 }
 
 /* Fixed full-screen hero — the page never scrolls, so nothing drifts. */
+body {
+  min-height: 100vh;
+  margin: 0;
+}
 .home {
   position: fixed;
   inset: 0;
@@ -35,6 +39,16 @@
   position: relative;
   width: clamp(360px, 62vw, 1100px);
   height: clamp(160px, 26vw, 420px);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.big-text-container:hover {
+  transform: scale(1.04);
+}
+
+.big-text-container:hover .big-text {
+  color: #ffffff;
 }
 
 .big-text {
@@ -85,4 +99,37 @@
 .home-footer__meta span {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .home {
+    padding: 90px 20px 26px;
+  }
+
+  /* hide the side labels so the big word has room */
+  .home-title {
+    display: none;
+  }
+
+  .home-row {
+    gap: 0;
+  }
+
+  .big-text-container {
+    width: 100%;
+    height: clamp(80px, 22vw, 150px);
+  }
+
+  .home .big-text {
+    font-size: clamp(44px, 15vw, 110px);
+  }
+
+  .scroll-indicator {
+    gap: 16px;
+  }
+
+  .home-footer__meta {
+    font-size: 11px;
+  }
 }

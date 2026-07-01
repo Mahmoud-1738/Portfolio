@@ -1,5 +1,5 @@
 .about-page {
-  background: #05070d;
+  background: var(--page-bg);
   min-height: 100vh;
   color: #ffffff;
   font-family: "Inter", sans-serif;
@@ -8,20 +8,14 @@
 
 /* ---------- Hero ---------- */
 .about-hero {
-  height: 88vh;
+  height: 62vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0 40px;
-  background: linear-gradient(
-    180deg,
-    #1d5ce6 0%,
-    #00276f 42%,
-    #05070d 75%,
-    #05070d 100%
-  );
+  background: var(--hero-grad);
 }
 
 .about-big {
@@ -47,7 +41,7 @@
   display: grid;
   grid-template-columns: 200px 1fr 1fr;
   column-gap: 60px;
-  padding: 80px 60px;
+  padding: 40px 60px;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -73,7 +67,7 @@
 /* ---------- Marquee ---------- */
 .marquee {
   overflow: hidden;
-  padding: 34px 0;
+  padding: 22px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -122,14 +116,14 @@
 
 /* ---------- Services carousel ---------- */
 .about-services {
-  padding: 70px 60px 90px;
+  padding: 45px 60px 55px;
 }
 
 .about-services__head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .about-services__title {
@@ -157,7 +151,9 @@
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .carousel-arrows button:hover {
@@ -241,11 +237,11 @@
 
 /* ---------- Tech stack ---------- */
 .about-stack {
-  padding: 60px 60px 80px;
+  padding: 40px 60px 50px;
 }
 
 .about-stack__label {
-  margin: 0 0 40px;
+  margin: 0 0 24px;
   text-align: center;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.85);
@@ -259,7 +255,7 @@
 }
 
 .stack-cell {
-  height: 180px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -287,7 +283,7 @@
 
 /* ---------- CTA band ---------- */
 .about-cta {
-  padding: 40px 60px 90px;
+  padding: 20px 60px 60px;
 }
 
 .about-cta__card {
@@ -302,15 +298,9 @@
   grid-template-columns: 200px 1fr;
   gap: 64px;
   align-items: center;
-  /* black card with a blue glow concentrated on the left, around the image */
-  background:
-    radial-gradient(
-      60% 78% at 33% 50%,
-      rgba(40, 110, 255, 0.95) 0%,
-      rgba(15, 47, 130, 0.65) 32%,
-      rgba(5, 7, 13, 0) 70%
-    ),
-    #05070d;
+  border: 1px solid #ffffff;
+  /* background image (path is relative to this CSS file) */
+  background: url("../../assets/bg.png") center / cover no-repeat;
 }
 
 .about-cta__img {
@@ -318,7 +308,10 @@
   width: 200px;
   height: 270px;
   border-radius: 4px;
-  background: #d4d4d4;
+  background-color: #d4d4d4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .about-cta__body {

@@ -1,0 +1,224 @@
+.contact-page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  /* same linear gradient style as the other pages */
+  background: linear-gradient(
+    #0039a2 0%,
+
+    #000000 84%
+  );
+}
+
+/* a blue rectangle, heavily blurred, sitting low-left for the glow */
+.contact-glow {
+  position: absolute;
+  left: -18%;
+  bottom: 211px;
+  width: 1436px;
+  height: 506px;
+  border-radius: 40px;
+  background: linear-gradient(43deg, #4284ff 0%, #175ad8 40%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(43deg); /* change the angle to rotate the glow */
+}
+
+.contact-glow2 {
+  position: absolute;
+  left: 40%;
+  bottom: 841px;
+  width: 840px;
+  height: 272px;
+  border-radius: 40px;
+  background: #0039a2;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(43deg); /* change the angle to rotate the glow */
+}
+
+.contact-glow3 {
+  position: absolute;
+  left: 80%;
+  bottom: 50px;
+  width: 840px;
+  height: 272px;
+  border-radius: 40px;
+  background: #0039a2;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(43deg); /* change the angle to rotate the glow */
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 540px;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ---------- Left ---------- */
+.contact-big {
+  margin: 0 0 28px;
+  font-family: "GTProelium", sans-serif;
+  font-size: clamp(60px, 9vw, 150px);
+  line-height: 0.9;
+  letter-spacing: 1px;
+  color: #d7dde8;
+}
+
+.contact-lead {
+  margin: 0;
+  max-width: 400px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ---------- Form ---------- */
+.contact-form {
+  background: #0b0c10;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form__title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #050507;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 14px;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(120, 160, 255, 0.6);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-form__submit {
+  margin-top: 8px;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contact-form__submit:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.contact-form__status {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+.contact-form__status.is-ok {
+  color: #5ad17a;
+}
+
+.contact-form__status.is-err {
+  color: #ff6b6b;
+}
+
+/* ---------- Footer ---------- */
+.contact-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 60px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contact-footer a,
+.contact-footer__link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.contact-footer a:hover,
+.contact-footer__link:hover {
+  color: #ffffff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  /* the two columns stack, so let the page grow + scroll instead of being a
+     fixed single screen (which would clip the form on phones) */
+  .contact-page {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 110px 24px 40px;
+  }
+
+  .contact-big {
+    font-size: clamp(48px, 14vw, 90px);
+  }
+}

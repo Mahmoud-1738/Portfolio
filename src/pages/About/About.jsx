@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
-import { NavLink } from "react-router-dom";
+import Footer from "../../components/Footer.jsx";
+import { useReveal } from "../../hooks/useReveal.js";
+import { usePageMeta } from "../../hooks/usePageMeta.js";
 import "./About.css";
 
 const SERVICES = [
@@ -99,28 +101,34 @@ function MarqueeUnit() {
 
 function About() {
   const trackRef = useRef(null);
+  const pageRef = useRef(null);
+  useReveal(pageRef);
+  usePageMeta(
+    "About",
+    "About Mahmoud — a web developer building fast, modern, interactive websites with React, GSAP and clean front-end engineering."
+  );
 
   const scroll = (dir) => {
     trackRef.current?.scrollBy({ left: dir * 384, behavior: "smooth" });
   };
 
   return (
-    <div className="about-page">
+    <div className="about-page" ref={pageRef}>
       {/* ---------- Hero ---------- */}
       <section className="about-hero">
-        <h1 className="about-big">MAHMOUD</h1>
-        <p className="about-hero__sub">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-          ever since 1500, when designers at.
+        <h1 className="about-big" data-reveal="zoom">MAHMOUD</h1>
+        <p className="about-hero__sub" data-reveal>
+          I&apos;m Mahmoud — a web developer focused on building fast, modern and
+          interactive websites. I turn ideas into polished products that feel
+          alive.
         </p>
       </section>
 
       {/* ---------- About me ---------- */}
       <section className="about-intro">
-        <span className="about-intro__label">About Us</span>
+        <span className="about-intro__label" data-reveal="left">About Us</span>
 
-        <div className="about-intro__col">
+        <div className="about-intro__col" data-reveal>
           <p>
             Mahmoud is a developer built to create momentum. I help brands move
             faster, think sharper, and show up with relevance through
@@ -133,7 +141,7 @@ function About() {
           </p>
         </div>
 
-        <div className="about-intro__col">
+        <div className="about-intro__col" data-reveal>
           <p>
             I believe momentum comes from people — the ones behind the work and
             the ones it&apos;s made for. Ideas should feel alive, timely and
@@ -167,7 +175,7 @@ function About() {
       {/* ---------- Services ---------- */}
       <section className="about-services">
         <div className="about-services__head">
-          <h2 className="about-services__title">Services</h2>
+          <h2 className="about-services__title" data-reveal="left">Services</h2>
           <div className="carousel-arrows">
             <button type="button" onClick={() => scroll(-1)} aria-label="Previous">
               ‹
@@ -180,7 +188,7 @@ function About() {
 
         <div className="services-track" ref={trackRef}>
           {SERVICES.map((s) => (
-            <article className="svc-card" key={s.title}>
+            <article className="svc-card" key={s.title} data-reveal>
               <div className="svc-card__img">
                 <span className="svc-card__emoji">{s.emoji}</span>
               </div>
@@ -201,10 +209,10 @@ function About() {
 
       {/* ---------- Tech stack ---------- */}
       <section className="about-stack">
-        <p className="about-stack__label">Built with</p>
+        <p className="about-stack__label" data-reveal>Built with</p>
         <div className="stack-grid">
           {STACK.map((t) => (
-            <div className="stack-cell" key={t}>
+            <div className="stack-cell" key={t} data-reveal="zoom">
               {t}
             </div>
           ))}
@@ -214,30 +222,24 @@ function About() {
       {/* ---------- CTA band ---------- */}
       <section className="about-cta">
         <div className="about-cta__card">
-          <div className="about-cta__img" aria-hidden="true"></div>
+          {/* drop your photo at /public/about-me.jpg — falls back to a plain block */}
+          <div
+            className="about-cta__img"
+            style={{ backgroundImage: "url('/about-me.jpg')" }}
+            aria-hidden="true"
+          ></div>
           <div className="about-cta__body">
-            <span className="about-cta__logo">MAHMOUD</span>
-            <p className="about-cta__text">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using &apos;Content here,
-              content here&apos;, making it look like readable English. M
+            <span className="about-cta__logo" data-reveal="left">MAHMOUD</span>
+            <p className="about-cta__text" data-reveal>
+              I care about the details — clean code, smooth motion, and
+              interfaces that are a pleasure to use. If you&apos;ve got an idea,
+              let&apos;s turn it into something people remember.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ---------- Footer ---------- */}
-      <footer className="about-footer">
-        <span>@2026</span>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-          Linkedin
-        </a>
-        <NavLink to="/contact" className="about-footer__link">
-          contact
-        </NavLink>
-      </footer>
+      <Footer />
     </div>
   );
 }

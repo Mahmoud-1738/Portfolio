@@ -12,14 +12,29 @@
 }
 
 :root {
-  --bgc1: #1d5ce6;
+  --bgc1: #0039a2;
   --bgc2: #000000;
   --text1: #ffffff;
+
+  /* shared page tones + the blue→black hero gradient used across pages */
+  --page-bg: #05070d;
+  --hero-grad: linear-gradient(
+    180deg,
+    #0039a2 0%,
+    #00276f 40%,
+    #05070d 70%,
+    #05070d 100%
+  );
 }
 
 html,
 body {
   overflow-x: clip; /* hide the incoming page while it sits off-screen */
+}
+
+/* elements wait hidden until the reveal animation runs (no flash on load/nav) */
+[data-reveal] {
+  opacity: 0;
 }
 
 body {

@@ -1,5 +1,5 @@
 .projects-page {
-  background: #05070d;
+  background: var(--page-bg);
   min-height: 100vh;
   color: #ffffff;
   font-family: "Inter", sans-serif;
@@ -13,14 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* brighter blue, concentrated near the top, fading to black sooner */
-  background: linear-gradient(
-    180deg,
-    #1d5ce6 0%,
-    #00276f 40%,
-    #05070d 70%,
-    #05070d 100%
-  );
+  background: var(--hero-grad);
   overflow: hidden;
 }
 
@@ -35,22 +28,15 @@
   text-align: center;
 }
 
-/* Placeholder where the 3D phone will sit — delete the styling once you add it. */
+/* 3D phone holder — the <Canvas> fills this box */
 .projects-phone-slot {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%);
-  width: clamp(120px, 14vw, 220px);
-  height: clamp(240px, 30vw, 440px);
-  border: 1px dashed rgba(255, 255, 255, 0.35);
-  border-radius: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 13px;
-  letter-spacing: 1px;
+  transform: translate(-50%, -50%);
+  width: clamp(260px, 34vw, 520px);
+  height: clamp(360px, 46vw, 680px);
+  z-index: 2;
 }
 
 .projects-scroll-hint {
@@ -95,7 +81,10 @@
   background: transparent;
   color: rgba(255, 255, 255, 0.45);
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .view-btn:hover {
@@ -152,7 +141,9 @@
   font-family: "Inter", sans-serif;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .filter-btn:hover {
@@ -178,6 +169,14 @@
 /* ---------- Projects wrapper ---------- */
 .projects-list {
   padding: 50px 60px 120px;
+}
+
+/* cards are links — keep them looking like cards */
+.grid-card,
+.list-row,
+.single-card {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* shared service tag */

@@ -1,16 +1,25 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import SplitText from "gsap/SplitText";
+import { usePageMeta } from "../../hooks/usePageMeta.js";
 
 gsap.registerPlugin(useGSAP, SplitText);
 
 const WORDS = ["#portfolio", "#project", "#about", "#contact"];
+// where each word links to (same order as WORDS)
+const PATHS = ["/", "/projects", "/about", "/contact"];
 
 function Home() {
   const indexRef = useRef(0);
   const animatingRef = useRef(false);
+  const navigate = useNavigate();
+  usePageMeta("", "Mahmoud — web developer portfolio.");
+
+  // go to the page of the word currently on screen
+  const openCurrent = () => navigate(PATHS[indexRef.current]);
 
   useGSAP(() => {
     // Lock page scrolling immediately (synchronously) so the cleanup below
@@ -20,6 +29,10 @@ function Home() {
     const prevBody = document.body.style.overflow;
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+
+    // Clear any leftover transform from ScrollSmoother (Projects page) so the
+    // fixed hero measures against the viewport, not a transformed ancestor.
+    gsap.set(["#smooth-wrapper", "#smooth-content"], { clearProps: "transform" });
 
     let tl = null;
 
@@ -139,7 +152,12 @@ function Home() {
           Web
         </h1>
 
-        <div className="big-text-container">
+        <div
+          className="big-text-container"
+          onClick={openCurrent}
+          role="link"
+          title="Open page"
+        >
           <h1 className="big-text" id="portfolio">
             Portfolio
           </h1>

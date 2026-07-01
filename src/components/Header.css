@@ -22,8 +22,42 @@ li {
 }
 
 .nav-link {
+  position: relative;
   text-decoration: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.75);
   font-family: "Inter";
   font-size: 14px;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* underline the current page */
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: #ffffff;
+  transform-origin: left center;
+  animation: nav-underline 0.5s ease forwards;
+}
+
+/* the line sweeps in along the x-axis (no fade) */
+@keyframes nav-underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }

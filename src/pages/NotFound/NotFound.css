@@ -1,0 +1,41 @@
+.notfound {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.notfound__code {
+  margin: 0;
+  font-family: "GTProelium", sans-serif;
+  font-size: clamp(100px, 20vw, 260px);
+  line-height: 1;
+  color: #d7dde8;
+}
+
+.notfound__text {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.notfound__home {
+  margin-top: 18px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.notfound__home:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

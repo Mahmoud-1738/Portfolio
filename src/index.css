@@ -1,14 +1,23 @@
 @font-face {
   font-family: "GTProelium";
-  src: url("./assets/GTProeliumSharp.otf") format("opentype");
+  src:
+    url("./assets/GTProeliumSharp.woff2") format("woff2"),
+    url("./assets/GTProeliumSharp.otf") format("opentype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("./assets/Inter_18pt-ExtraLight.ttf") format("truetype");
+  src:
+    url("./assets/Inter_18pt-ExtraLight.woff2") format("woff2"),
+    url("./assets/Inter_18pt-ExtraLight.ttf") format("truetype");
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter2";
-  src: url("./assets/Inter_18pt-Medium.ttf") format("truetype");
+  src:
+    url("./assets/Inter_18pt-Medium.woff2") format("woff2"),
+    url("./assets/Inter_18pt-Medium.ttf") format("truetype");
+  font-display: swap;
 }
 
 :root {
@@ -35,6 +44,29 @@ body {
 /* elements wait hidden until the reveal animation runs (no flash on load/nav) */
 [data-reveal] {
   opacity: 0;
+}
+
+/* visually hidden but readable by screen readers / SEO */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* keyboard focus should be visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #6ea8ff;
+  outline-offset: 3px;
 }
 
 body {

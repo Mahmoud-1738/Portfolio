@@ -1,5 +1,10 @@
 // Single source of truth for projects — used by the list page and detail page.
-// Add screenshots/videos to /public/projects/ and reference them here.
+// Import images so Vite bundles them and gives valid URLs at runtime.
+import annexBiosImg from "../assets/AnnexBios.png";
+import uFestivalImg from "../assets/UFestivalApp.png";
+import kioskImg from "../assets/Kiosk.jpg";
+import snowBallImg from "../assets/SnowBall.jpg";
+
 export const PROJECTS = [
   {
     id: "annexbios",
@@ -9,7 +14,7 @@ export const PROJECTS = [
     category: "Cinema Website",
     services: ["PHP", "CSS", "Html", "JavaScript"],
     featured: true, // highlight as an extra-important project
-    image: null, // "/projects/annexbios.png"
+    image: annexBiosImg,
     video: null, // "/projects/annexbios.mp4"
     description:
       "A cinema website with a live film agenda and a ticket-booking flow. Visitors can browse what's playing, filter by category, and reserve tickets.",
@@ -31,16 +36,17 @@ export const PROJECTS = [
     role: "Designed and built the full front-end and the PHP back-end on my own.",
   },
   {
-    id: "project-two",
-    name: "Project Two",
-    year: 2024,
-    date: "2024",
+    id: "Festival-App",
+    name: "U Festival App - 2026",
+    year: 2026,
+    date: "2026",
     category: "Web App",
     services: ["React", "Vite", "CSS"],
     featured: false,
-    image: null,
+    image: uFestivalImg,
     video: null,
-    description: "Short description of this project — replace with the real one.",
+    description:
+      "Short description of this project — replace with the real one.",
     highlights: ["Highlight one", "Highlight two", "Highlight three"],
     code: `// drop a representative code snippet here`,
     download: null,
@@ -48,16 +54,36 @@ export const PROJECTS = [
     role: "Describe your role and what the team handled.",
   },
   {
-    id: "project-three",
-    name: "Project Three",
-    year: 2024,
-    date: "2024",
+    id: "Kiosk",
+    name: "Kiosk Happy Herbivore ~ Healthy in a Hurry",
+    year: 2026,
+    date: "2026",
     category: "Website",
     services: ["Html", "CSS", "JavaScript"],
     featured: false,
-    image: null,
+    image: kioskImg,
     video: null,
-    description: "Short description of this project — replace with the real one.",
+    description:
+      "Short description of this project — replace with the real one.",
+    highlights: ["Highlight one", "Highlight two"],
+    code: `// drop a representative code snippet here`,
+    download: null,
+    teamType: "Team project",
+    role: "Describe your role here.",
+  },
+  {
+    // NOTE: id must be unique — it is the URL of the detail page.
+    id: "snowball",
+    name: "SnowBall",
+    year: 2026,
+    date: "2026",
+    category: "Website",
+    services: ["Html", "CSS", "JavaScript"],
+    featured: false,
+    image: snowBallImg,
+    video: null,
+    description:
+      "Short description of this project — replace with the real one.",
     highlights: ["Highlight one", "Highlight two"],
     code: `// drop a representative code snippet here`,
     download: null,

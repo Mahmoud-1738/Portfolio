@@ -179,29 +179,6 @@
   color: #ff6b6b;
 }
 
-/* ---------- Footer ---------- */
-.contact-footer {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 60px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.contact-footer a,
-.contact-footer__link {
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-}
-
-.contact-footer a:hover,
-.contact-footer__link:hover {
-  color: #ffffff;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   /* the two columns stack, so let the page grow + scroll instead of being a

@@ -6,9 +6,26 @@ function Footer() {
   return (
     <footer className="site-footer">
       <span>@2026</span>
-      <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-        Linkedin
-      </a>
+
+      <div className="site-footer__links">
+        <a href="mailto:mahmous2234@gmail.com">mahmous2234@gmail.com</a>
+        {/* TODO: replace with your real LinkedIn profile URL */}
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          Linkedin
+        </a>
+        <a
+          href="https://github.com/Mahmoud-1764"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+        {/* place your cv at public/cv.pdf so this link works */}
+        <a href="/cv.pdf" target="_blank" rel="noreferrer">
+          CV
+        </a>
+      </div>
+
       <NavLink to="/contact" className="site-footer__link">
         contact
       </NavLink>

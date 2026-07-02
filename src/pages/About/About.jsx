@@ -4,83 +4,98 @@ import { useReveal } from "../../hooks/useReveal.js";
 import { usePageMeta } from "../../hooks/usePageMeta.js";
 import "./About.css";
 
+// simple line icons in the site's blue accent
+const ICONS = {
+  frontend: (
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <rect x="8" y="12" width="56" height="44" rx="6" stroke="#6ea8ff" strokeWidth="3" />
+      <line x1="8" y1="24" x2="64" y2="24" stroke="#6ea8ff" strokeWidth="3" />
+      <circle cx="15" cy="18" r="1.8" fill="#6ea8ff" />
+      <circle cx="21" cy="18" r="1.8" fill="#6ea8ff" />
+      <path d="M28 34 L20 41 L28 48" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d="M44 34 L52 41 L44 48" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <line x1="38" y1="32" x2="34" y2="50" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  ),
+  motion: (
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <path d="M36 8 L62 22 V50 L36 64 L10 50 V22 Z" stroke="#6ea8ff" strokeWidth="3" strokeLinejoin="round" fill="none" />
+      <path d="M36 8 V36 M36 36 L62 22 M36 36 L10 22 M36 36 V64" stroke="#6ea8ff" strokeWidth="3" strokeLinejoin="round" />
+    </svg>
+  ),
+  backend: (
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <rect x="12" y="10" width="48" height="16" rx="4" stroke="#6ea8ff" strokeWidth="3" />
+      <rect x="12" y="28" width="48" height="16" rx="4" stroke="#6ea8ff" strokeWidth="3" />
+      <rect x="12" y="46" width="48" height="16" rx="4" stroke="#6ea8ff" strokeWidth="3" />
+      <circle cx="20" cy="18" r="2" fill="#6ea8ff" />
+      <circle cx="20" cy="36" r="2" fill="#6ea8ff" />
+      <circle cx="20" cy="54" r="2" fill="#6ea8ff" />
+      <line x1="40" y1="18" x2="52" y2="18" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+      <line x1="40" y1="36" x2="52" y2="36" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+      <line x1="40" y1="54" x2="52" y2="54" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  ),
+  seo: (
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <path d="M12 58 A26 26 0 1 1 60 58" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" fill="none" />
+      <line x1="36" y1="52" x2="48" y2="30" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="36" cy="52" r="4" fill="#6ea8ff" />
+    </svg>
+  ),
+};
+
 const SERVICES = [
   {
-    emoji: "💡",
-    title: "Concept & Strategy",
-    desc: "Come to us with an idea — or even just a goal — and we'll build the entire creative vision from start to finish.",
-    list: [
-      "Creative strategy",
-      "Storyboarding",
-      "Moodboards",
-      "Trend forecasting",
-      "Campaign direction",
-      "Narrative development",
-    ],
-  },
-  {
-    emoji: "🎬",
+    icon: ICONS.frontend,
     title: "Front-End",
-    desc: "No matter the scale, we bring interfaces to life with precision, motion and pixel-perfect detail.",
+    desc: "Building responsive interfaces with React and clean CSS — from layout to the last hover state.",
     list: [
       "React / Vite",
       "Responsive UI",
-      "Animations",
+      "Html & CSS",
+      "JavaScript",
+      "Components",
       "Accessibility",
-      "Component systems",
-      "Performance",
     ],
   },
   {
-    emoji: "✨",
-    title: "Animation & VFX",
-    desc: "We don't just enhance experiences — we make them unforgettable using motion and interaction.",
+    icon: ICONS.motion,
+    title: "Animation & 3D",
+    desc: "Motion that supports the design instead of distracting from it — like the scroll effects and the 3D phone on this site.",
     list: [
-      "GSAP / motion",
+      "GSAP",
       "Scroll effects",
       "Micro-interactions",
-      "3D / WebGL",
+      "Three.js / R3F",
       "Transitions",
       "Hover states",
     ],
   },
   {
-    emoji: "🛠️",
+    icon: ICONS.backend,
     title: "Back-End",
-    desc: "Robust, secure foundations that keep everything running fast and reliable behind the scenes.",
+    desc: "The part you don't see: forms that arrive, data that's stored, and pages that keep working.",
     list: [
+      "PHP",
       "APIs",
       "Databases",
-      "Auth",
-      "Node / PHP",
+      "Forms",
       "Integrations",
       "Deployment",
     ],
   },
   {
-    emoji: "📈",
-    title: "SEO & Strategy",
-    desc: "We make sure the work gets seen — fast pages, clean markup, and content that ranks.",
+    icon: ICONS.seo,
+    title: "SEO & Performance",
+    desc: "Fast pages with clean markup: unique titles, meta descriptions, alt text and optimised assets.",
     list: [
-      "Technical SEO",
-      "Core Web Vitals",
-      "Analytics",
-      "Metadata",
-      "Sitemaps",
-      "Optimisation",
-    ],
-  },
-  {
-    emoji: "🎟️",
-    title: "Maintenance",
-    desc: "We keep what we build healthy — updates, monitoring and quick turnarounds when you need them.",
-    list: [
-      "Updates",
-      "Monitoring",
-      "Bug fixes",
-      "Backups",
-      "Support",
-      "Rapid delivery",
+      "Meta tags",
+      "Semantic HTML",
+      "Alt text",
+      "Lighthouse",
+      "Image optimisation",
+      "Loading speed",
     ],
   },
 ];
@@ -92,7 +107,7 @@ function MarqueeUnit() {
   return (
     <>
       <span className="marquee__item">
-        Create. <span className="marquee__accent">Move.</span> Accelerate
+        Learn. <span className="marquee__accent">Build.</span> Repeat
       </span>
       <span className="marquee__sep" aria-hidden="true" />
     </>
@@ -126,31 +141,32 @@ function About() {
 
       {/* ---------- About me ---------- */}
       <section className="about-intro">
-        <span className="about-intro__label" data-reveal="left">About Us</span>
+        <span className="about-intro__label" data-reveal="left">About me</span>
 
         <div className="about-intro__col" data-reveal>
           <p>
-            Mahmoud is a developer built to create momentum. I help brands move
-            faster, think sharper, and show up with relevance through
-            culture-shaping content and high-impact builds.
+            I&apos;m Mahmoud, a web development student at Grafisch Lyceum
+            Utrecht. I got into building websites because I like making things
+            people can actually click, scroll and use — not just look at.
           </p>
           <p>
-            As platforms and attention spans keep shifting, I adapt without
-            losing focus — from strategy to production and launch, designing work
-            that meets the moment and pushes it forward.
+            I work mostly with React, JavaScript and PHP, and I enjoy the
+            front-end side the most: layout, motion and the small details that
+            make a page feel finished. This portfolio is built from scratch with
+            React, Vite and GSAP.
           </p>
         </div>
 
         <div className="about-intro__col" data-reveal>
           <p>
-            I believe momentum comes from people — the ones behind the work and
-            the ones it&apos;s made for. Ideas should feel alive, timely and
-            human.
+            The projects here range from a cinema website with ticket booking to
+            a festival app built with a team. Each one taught me something new —
+            about code, but also about planning and working with others.
           </p>
           <p>
-            At the core it&apos;s about commitment: to the clients, to the work,
-            and to the craft. Every project gets treated like my own. Always
-            moving. Always building.
+            Right now I&apos;m focused on getting better at animation, 3D on the
+            web and writing cleaner code. Next up: TypeScript and more back-end.
+            If you want to build something together, get in touch.
           </p>
         </div>
       </section>
@@ -189,9 +205,7 @@ function About() {
         <div className="services-track" ref={trackRef}>
           {SERVICES.map((s) => (
             <article className="svc-card" key={s.title} data-reveal>
-              <div className="svc-card__img">
-                <span className="svc-card__emoji">{s.emoji}</span>
-              </div>
+              <div className="svc-card__img">{s.icon}</div>
               <h3 className="svc-card__title">{s.title}</h3>
               <p className="svc-card__desc">{s.desc}</p>
               <ul className="svc-card__list">

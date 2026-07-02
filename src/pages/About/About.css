@@ -194,11 +194,6 @@
   background: radial-gradient(120% 120% at 50% 30%, #16306e, #070b16);
 }
 
-.svc-card__emoji {
-  font-size: 76px;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
-}
-
 .svc-card__title {
   margin: 0 0 14px;
   font-family: "GTProelium", sans-serif;
@@ -333,28 +328,6 @@
   max-width: 500px;
   font-size: 19px;
   line-height: 1.6;
-  color: #ffffff;
-}
-
-/* ---------- Footer ---------- */
-.about-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 60px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.about-footer a,
-.about-footer__link {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-}
-
-.about-footer a:hover,
-.about-footer__link:hover {
   color: #ffffff;
 }
 

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -6,10 +6,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Header from "./components/Header.jsx";
 import Home from "./pages/Home/Home.jsx";
-import About from "./pages/About/About.jsx";
-import Projects from "./pages/projects/Projects.jsx";
-import Project from "./pages/projects/Project.jsx";
-import Contact from "./pages/Contact/Contact.jsx";
+
+// Lazy-load the other pages so each route only downloads its own code —
+// especially Projects, which pulls in three.js and the 3D phone model.
+const About = lazy(() => import("./pages/About/About.jsx"));
+const Projects = lazy(() => import("./pages/projects/Projects.jsx"));
+const Project = lazy(() => import("./pages/projects/Project.jsx"));
+const Contact = lazy(() => import("./pages/Contact/Contact.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
@@ -44,13 +48,18 @@ export default function AnimatedRoutes() {
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<Project />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <main>
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:id" element={<Project />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </main>
       </div>
     </div>
   );

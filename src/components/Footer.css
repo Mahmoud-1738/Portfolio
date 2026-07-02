@@ -11,6 +11,12 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.site-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .site-footer a,
 .site-footer__link {
   color: rgba(255, 255, 255, 0.6);

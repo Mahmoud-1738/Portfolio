@@ -147,34 +147,45 @@ function Home() {
 
   return (
     <section className="home">
+      {/* single h1 for SEO — visually hidden, the big words are decorative */}
+      <h1 className="sr-only">Mahmoud — Web Developer Portfolio</h1>
+
       <div className="home-row">
-        <h1 className="home-title" id="home-title1">
+        <p className="home-title" id="home-title1">
           Web
-        </h1>
+        </p>
 
         <div
           className="big-text-container"
           onClick={openCurrent}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openCurrent();
+            }
+          }}
           role="link"
+          tabIndex={0}
+          aria-label="Open the page of the word shown"
           title="Open page"
         >
-          <h1 className="big-text" id="portfolio">
+          <div className="big-text" id="portfolio">
             Portfolio
-          </h1>
-          <h1 className="big-text" id="project">
+          </div>
+          <div className="big-text" id="project">
             Project
-          </h1>
-          <h1 className="big-text" id="about">
+          </div>
+          <div className="big-text" id="about">
             About
-          </h1>
-          <h1 className="big-text" id="contact">
+          </div>
+          <div className="big-text" id="contact">
             Contact
-          </h1>
+          </div>
         </div>
 
-        <h1 className="home-title" id="home-title2">
+        <p className="home-title" id="home-title2">
           Developer
-        </h1>
+        </p>
       </div>
 
       <footer className="home-footer">
@@ -187,10 +198,27 @@ function Home() {
 
         <div className="home-footer__meta">
           <span>@2026</span>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-            Linkedin
-          </a>
-          <span>contact</span>
+          <div className="home-footer__links">
+            <a href="mailto:mahmous2234@gmail.com">mahmous2234@gmail.com</a>
+            {/* TODO: replace with your real LinkedIn profile URL */}
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              Linkedin
+            </a>
+            <a
+              href="https://github.com/Mahmoud-1764"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+          <button
+            type="button"
+            className="home-footer__contact"
+            onClick={() => navigate("/contact")}
+          >
+            contact
+          </button>
         </div>
       </footer>
     </section>

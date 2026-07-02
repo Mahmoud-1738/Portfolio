@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "Inter";
-  src: url("./assets/Inter_18pt-ExtraLight.ttf") format("truetype");
-}
-
 /* Fixed full-screen hero — the page never scrolls, so nothing drifts. */
 body {
   min-height: 100vh;
@@ -95,10 +90,34 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.home-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .home-footer__meta a,
 .home-footer__meta span {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+}
+
+.home-footer__meta a:hover {
+  color: #ffffff;
+}
+
+.home-footer__contact {
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: "Inter";
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.home-footer__contact:hover {
+  color: #ffffff;
 }
 
 /* ---------- Mobile ---------- */

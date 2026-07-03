@@ -53,7 +53,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 60px;
+  /* keeps content centered (max ~1560px) on wide screens like 1920x1080,
+     while the border still spans the full width */
+  padding: 24px max(60px, calc((100vw - 1560px) / 2));
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -168,7 +170,7 @@
 
 /* ---------- Projects wrapper ---------- */
 .projects-list {
-  padding: 50px 60px 120px;
+  padding: 50px max(60px, calc((100vw - 1560px) / 2)) 120px;
 }
 
 /* cards are links — keep them looking like cards */
@@ -307,7 +309,9 @@
 
 .single-card {
   display: grid;
-  grid-template-columns: 48px minmax(0, 900px) minmax(280px, 1fr);
+  /* capped info column so the card stays a centered group on wide screens */
+  grid-template-columns: 48px minmax(0, 900px) minmax(280px, 340px);
+  justify-content: center;
   column-gap: 40px;
   align-items: stretch;
 }
@@ -386,6 +390,20 @@
   .projects-list {
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  /* stack the toolbar so search + filters don't overflow on phones */
+  .projects-toolbar {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .toolbar-filters {
+    flex-wrap: wrap;
+  }
+
+  .search input {
+    width: 110px;
   }
 
   .projects-list--grid {

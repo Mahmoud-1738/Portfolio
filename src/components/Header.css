@@ -3,22 +3,40 @@ header {
   z-index: 10;
 }
 
-ul {
+/* scoped to the header so these rules don't leak into other lists */
+header nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  padding: 30px 16px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 100px;
   align-items: center;
-  margin-right: 50px;
+  gap: clamp(24px, 6vw, 110px);
 }
 
-li {
-  margin-right: 20px;
-  margin-top: 30px;
+/* ---------- Phone ---------- */
+@media (max-width: 700px) {
+  header nav ul {
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding: 16px 12px 0;
+  }
+
+  /* logo on its own line, links beneath it */
+  header nav li:nth-child(3) {
+    order: -1;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  #name {
+    font-size: 20px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
 }
 
 .nav-link {

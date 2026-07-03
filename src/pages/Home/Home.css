@@ -123,7 +123,8 @@ body {
 /* ---------- Mobile ---------- */
 @media (max-width: 700px) {
   .home {
-    padding: 90px 20px 26px;
+    /* extra top room: the header wraps to two rows on phones */
+    padding: 120px 20px 26px;
   }
 
   /* hide the side labels so the big word has room */

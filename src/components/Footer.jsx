@@ -14,7 +14,7 @@ function Footer() {
           Linkedin
         </a>
         <a
-          href="https://github.com/Mahmoud-1764"
+          href="https://github.com/Mahmoud-1738"
           target="_blank"
           rel="noreferrer"
         >

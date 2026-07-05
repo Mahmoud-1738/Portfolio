@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float, OrbitControls } from "@react-three/drei";
 import { Phone } from "../../components/Phone.jsx";
-import { PROJECTS } from "../../data/projects.js";
+import { PROJECTS, getThumbnail } from "../../data/projects.js";
 import { useReveal } from "../../hooks/useReveal.js";
 import { usePageMeta } from "../../hooks/usePageMeta.js";
 import "./Projects.css";
@@ -31,12 +31,14 @@ function Projects() {
       </span>
     ));
 
-  const shot = (p, phClass) =>
-    p.image ? (
-      <img src={p.image} alt={p.name} />
+  const shot = (p, phClass) => {
+    const thumb = getThumbnail(p);
+    return thumb ? (
+      <img src={thumb} alt={p.name} />
     ) : (
       <div className={phClass}>{p.name}</div>
     );
+  };
 
   // Re-run the reveal when the view or search changes (cards re-render).
   useReveal(pageRef, [view, query]);

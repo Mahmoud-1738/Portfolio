@@ -2,44 +2,172 @@ import React, { useRef } from "react";
 import Footer from "../../components/Footer.jsx";
 import { useReveal } from "../../hooks/useReveal.js";
 import { usePageMeta } from "../../hooks/usePageMeta.js";
+import myPhoto from "../../assets/myfoto.jpeg";
 import "./About.css";
 
 // simple line icons in the site's blue accent
 const ICONS = {
   frontend: (
-    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
-      <rect x="8" y="12" width="56" height="44" rx="6" stroke="#6ea8ff" strokeWidth="3" />
+    <svg
+      width="72"
+      height="72"
+      viewBox="0 0 72 72"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="8"
+        y="12"
+        width="56"
+        height="44"
+        rx="6"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+      />
       <line x1="8" y1="24" x2="64" y2="24" stroke="#6ea8ff" strokeWidth="3" />
       <circle cx="15" cy="18" r="1.8" fill="#6ea8ff" />
       <circle cx="21" cy="18" r="1.8" fill="#6ea8ff" />
-      <path d="M28 34 L20 41 L28 48" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M44 34 L52 41 L44 48" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <line x1="38" y1="32" x2="34" y2="50" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+      <path
+        d="M28 34 L20 41 L28 48"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path
+        d="M44 34 L52 41 L44 48"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <line
+        x1="38"
+        y1="32"
+        x2="34"
+        y2="50"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   motion: (
-    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
-      <path d="M36 8 L62 22 V50 L36 64 L10 50 V22 Z" stroke="#6ea8ff" strokeWidth="3" strokeLinejoin="round" fill="none" />
-      <path d="M36 8 V36 M36 36 L62 22 M36 36 L10 22 M36 36 V64" stroke="#6ea8ff" strokeWidth="3" strokeLinejoin="round" />
+    <svg
+      width="72"
+      height="72"
+      viewBox="0 0 72 72"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M36 8 L62 22 V50 L36 64 L10 50 V22 Z"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path
+        d="M36 8 V36 M36 36 L62 22 M36 36 L10 22 M36 36 V64"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   backend: (
-    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
-      <rect x="12" y="10" width="48" height="16" rx="4" stroke="#6ea8ff" strokeWidth="3" />
-      <rect x="12" y="28" width="48" height="16" rx="4" stroke="#6ea8ff" strokeWidth="3" />
-      <rect x="12" y="46" width="48" height="16" rx="4" stroke="#6ea8ff" strokeWidth="3" />
+    <svg
+      width="72"
+      height="72"
+      viewBox="0 0 72 72"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="12"
+        y="10"
+        width="48"
+        height="16"
+        rx="4"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+      />
+      <rect
+        x="12"
+        y="28"
+        width="48"
+        height="16"
+        rx="4"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+      />
+      <rect
+        x="12"
+        y="46"
+        width="48"
+        height="16"
+        rx="4"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+      />
       <circle cx="20" cy="18" r="2" fill="#6ea8ff" />
       <circle cx="20" cy="36" r="2" fill="#6ea8ff" />
       <circle cx="20" cy="54" r="2" fill="#6ea8ff" />
-      <line x1="40" y1="18" x2="52" y2="18" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
-      <line x1="40" y1="36" x2="52" y2="36" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
-      <line x1="40" y1="54" x2="52" y2="54" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+      <line
+        x1="40"
+        y1="18"
+        x2="52"
+        y2="18"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <line
+        x1="40"
+        y1="36"
+        x2="52"
+        y2="36"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <line
+        x1="40"
+        y1="54"
+        x2="52"
+        y2="54"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
     </svg>
   ),
   seo: (
-    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
-      <path d="M12 58 A26 26 0 1 1 60 58" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" fill="none" />
-      <line x1="36" y1="52" x2="48" y2="30" stroke="#6ea8ff" strokeWidth="3" strokeLinecap="round" />
+    <svg
+      width="72"
+      height="72"
+      viewBox="0 0 72 72"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 58 A26 26 0 1 1 60 58"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <line
+        x1="36"
+        y1="52"
+        x2="48"
+        y2="30"
+        stroke="#6ea8ff"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
       <circle cx="36" cy="52" r="4" fill="#6ea8ff" />
     </svg>
   ),
@@ -76,14 +204,7 @@ const SERVICES = [
     icon: ICONS.backend,
     title: "Back-End",
     desc: "The part you don't see: forms that arrive, data that's stored, and pages that keep working.",
-    list: [
-      "PHP",
-      "APIs",
-      "Databases",
-      "Forms",
-      "Integrations",
-      "Deployment",
-    ],
+    list: ["PHP", "APIs", "Databases", "Forms", "Integrations", "Deployment"],
   },
   {
     icon: ICONS.seo,
@@ -120,7 +241,7 @@ function About() {
   useReveal(pageRef);
   usePageMeta(
     "About",
-    "About Mahmoud — a web developer building fast, modern, interactive websites with React, GSAP and clean front-end engineering."
+    "About Mahmoud — a web developer building fast, modern, interactive websites with React, GSAP and clean front-end engineering.",
   );
 
   const scroll = (dir) => {
@@ -131,17 +252,21 @@ function About() {
     <div className="about-page" ref={pageRef}>
       {/* ---------- Hero ---------- */}
       <section className="about-hero">
-        <h1 className="about-big" data-reveal="zoom">MAHMOUD</h1>
+        <h1 className="about-big" data-reveal="zoom">
+          MAHMOUD
+        </h1>
         <p className="about-hero__sub" data-reveal>
-          I&apos;m Mahmoud — a web developer focused on building fast, modern and
-          interactive websites. I turn ideas into polished products that feel
-          alive.
+          I&apos;m Mahmoud — a web developer focused on building fast, modern
+          and interactive websites. I turn ideas into polished products that
+          feel alive.
         </p>
       </section>
 
       {/* ---------- About me ---------- */}
       <section className="about-intro">
-        <span className="about-intro__label" data-reveal="left">About me</span>
+        <span className="about-intro__label" data-reveal="left">
+          About me
+        </span>
 
         <div className="about-intro__col" data-reveal>
           <p>
@@ -191,9 +316,15 @@ function About() {
       {/* ---------- Services ---------- */}
       <section className="about-services">
         <div className="about-services__head">
-          <h2 className="about-services__title" data-reveal="left">Services</h2>
+          <h2 className="about-services__title" data-reveal="left">
+            Services
+          </h2>
           <div className="carousel-arrows">
-            <button type="button" onClick={() => scroll(-1)} aria-label="Previous">
+            <button
+              type="button"
+              onClick={() => scroll(-1)}
+              aria-label="Previous"
+            >
               ‹
             </button>
             <button type="button" onClick={() => scroll(1)} aria-label="Next">
@@ -223,7 +354,9 @@ function About() {
 
       {/* ---------- Tech stack ---------- */}
       <section className="about-stack">
-        <p className="about-stack__label" data-reveal>Built with</p>
+        <p className="about-stack__label" data-reveal>
+          Built with
+        </p>
         <div className="stack-grid">
           {STACK.map((t) => (
             <div className="stack-cell" key={t} data-reveal="zoom">
@@ -236,14 +369,17 @@ function About() {
       {/* ---------- CTA band ---------- */}
       <section className="about-cta">
         <div className="about-cta__card">
-          {/* drop your photo at /public/about-me.jpg — falls back to a plain block */}
+          {/* photo imported from src/assets so Vite bundles it */}
           <div
             className="about-cta__img"
-            style={{ backgroundImage: "url('/about-me.jpg')" }}
-            aria-hidden="true"
+            style={{ backgroundImage: `url(${myPhoto})` }}
+            role="img"
+            aria-label="Photo of Mahmoud"
           ></div>
           <div className="about-cta__body">
-            <span className="about-cta__logo" data-reveal="left">MAHMOUD</span>
+            <span className="about-cta__logo" data-reveal="left">
+              MAHMOUD
+            </span>
             <p className="about-cta__text" data-reveal>
               I care about the details — clean code, smooth motion, and
               interfaces that are a pleasure to use. If you&apos;ve got an idea,

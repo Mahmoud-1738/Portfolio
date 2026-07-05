@@ -1,10 +1,84 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProject } from "../../data/projects.js";
+import { getProject, getGallery } from "../../data/projects.js";
 import { useReveal } from "../../hooks/useReveal.js";
 import { usePageMeta } from "../../hooks/usePageMeta.js";
 import Footer from "../../components/Footer.jsx";
 import "./Project.css";
+
+function Gallery({ images, name }) {
+  const [active, setActive] = useState(0);
+
+  // Reset to the first photo whenever the project (and therefore the
+  // gallery) changes.
+  useEffect(() => setActive(0), [images]);
+
+  const go = (dir) => {
+    setActive((i) => (i + dir + images.length) % images.length);
+  };
+
+  // Left/right arrow keys switch photos when there's more than one.
+  useEffect(() => {
+    if (images.length < 2) return;
+    const onKey = (e) => {
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [images.length]);
+
+  return (
+    <div className="project-gallery">
+      <div className="project-media">
+        <img src={images[active]} alt={`${name} — photo ${active + 1}`} />
+
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              className="project-gallery__arrow project-gallery__arrow--prev"
+              onClick={() => go(-1)}
+              aria-label="Previous photo"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              className="project-gallery__arrow project-gallery__arrow--next"
+              onClick={() => go(1)}
+              aria-label="Next photo"
+            >
+              ›
+            </button>
+            <span className="project-gallery__count">
+              {active + 1} / {images.length}
+            </span>
+          </>
+        )}
+      </div>
+
+      {images.length > 1 && (
+        <div className="project-gallery__thumbs">
+          {images.map((src, i) => (
+            <button
+              type="button"
+              key={src + i}
+              className={
+                "project-gallery__thumb" + (i === active ? " is-active" : "")
+              }
+              onClick={() => setActive(i)}
+              aria-label={`Show photo ${i + 1}`}
+              aria-current={i === active}
+            >
+              <img src={src} alt="" aria-hidden="true" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function Project() {
   const { id } = useParams();
@@ -60,15 +134,22 @@ function Project() {
           </span>
         </header>
 
-        {/* ---------- Media (image / video) ---------- */}
-        <div className="project-media" data-reveal>
+        {/* ---------- Media (video takes priority, else a photo gallery) ---------- */}
+        <div className="project-media-block" data-reveal>
           {project.video ? (
-            <video src={project.video} controls poster={project.image || undefined} />
-          ) : project.image ? (
-            <img src={project.image} alt={project.name} />
-          ) : (
-            <div className="project-media__ph">{project.name}</div>
-          )}
+            <div className="project-media">
+              <video src={project.video} controls poster={project.image || undefined} />
+            </div>
+          ) : (() => {
+              const gallery = getGallery(project);
+              return gallery.length > 0 ? (
+                <Gallery images={gallery} name={project.name} />
+              ) : (
+                <div className="project-media">
+                  <div className="project-media__ph">{project.name}</div>
+                </div>
+              );
+            })()}
         </div>
 
         {/* ---------- Body ---------- */}

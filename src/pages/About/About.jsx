@@ -381,9 +381,15 @@ function About() {
               MAHMOUD
             </span>
             <p className="about-cta__text" data-reveal>
-              I care about the details — clean code, smooth motion, and
-              interfaces that are a pleasure to use. If you&apos;ve got an idea,
-              let&apos;s turn it into something people remember.
+              MBO-student Creative Software Development (niveau 4) met een focus
+              op webontwikkeling. Ik werk met PHP, Laravel, React en Vue, en ik
+              zoek een stage of bijbaan waar ik daar beter in kan worden en kan
+              meebouwen aan bruikbare, moderne webapplicaties. Op de langere
+              termijn wil ik richting de creatieve tech-industrie, vooral
+              visuele effecten en game art. Waar ik goed in ben: nette code
+              schrijven zonder het oog voor design te verliezen. Ik leer snel,
+              pak dingen aan en werk net zo makkelijk alleen als in een team,
+              van het eerste idee tot een afgerond project.
             </p>
           </div>
         </div>

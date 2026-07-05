@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import cvUrl from "../assets/CV.pdf?url";
 import "./Footer.css";
 
 function Footer() {
@@ -20,8 +21,7 @@ function Footer() {
         >
           GitHub
         </a>
-        {/* place your cv at public/cv.pdf so this link works */}
-        <a href="/cv.pdf" target="_blank" rel="noreferrer">
+        <a href={cvUrl} target="_blank" rel="noreferrer">
           CV
         </a>
       </div>

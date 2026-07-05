@@ -7,8 +7,6 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Header from "./components/Header.jsx";
 import Home from "./pages/Home/Home.jsx";
 
-// Lazy-load the other pages so each route only downloads its own code —
-// especially Projects, which pulls in three.js and the 3D phone model.
 const About = lazy(() => import("./pages/About/About.jsx"));
 const Projects = lazy(() => import("./pages/projects/Projects.jsx"));
 const Project = lazy(() => import("./pages/projects/Project.jsx"));
@@ -41,7 +39,7 @@ export default function AnimatedRoutes() {
         gsap.set(["#smooth-wrapper", "#smooth-content"], { clearProps: "all" });
       };
     },
-    { dependencies: [location.pathname] }
+    { dependencies: [location.pathname] },
   );
 
   return (

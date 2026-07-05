@@ -381,15 +381,16 @@ function About() {
               MAHMOUD
             </span>
             <p className="about-cta__text" data-reveal>
-              MBO-student Creative Software Development (niveau 4) met een focus
-              op webontwikkeling. Ik werk met PHP, Laravel, React en Vue, en ik
-              zoek een stage of bijbaan waar ik daar beter in kan worden en kan
-              meebouwen aan bruikbare, moderne webapplicaties. Op de langere
-              termijn wil ik richting de creatieve tech-industrie, vooral
-              visuele effecten en game art. Waar ik goed in ben: nette code
-              schrijven zonder het oog voor design te verliezen. Ik leer snel,
-              pak dingen aan en werk net zo makkelijk alleen als in een team,
-              van het eerste idee tot een afgerond project.
+              MBO student in Creative Software Development (level 4) with a
+              focus on web development. I work with PHP, Laravel, React, and
+              Vue, and I am looking for an internship or part-time job where I
+              can improve my skills in these areas and help build usable, modern
+              web applications. In the longer term, I want to move towards the
+              creative tech industry, particularly visual effects and game art.
+              My strengths: writing clean code without losing sight of the
+              design. I learn quickly, am proactive, and work just as easily
+              independently as in a team, from the initial idea to a completed
+              project.
             </p>
           </div>
         </div>
